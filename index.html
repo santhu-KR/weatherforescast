@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="A clean, responsive weather forecast app powered by Open-Meteo." />
+  <title>SkyCast Weather</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <main class="app-shell">
+    <section class="hero">
+      <div>
+        <p class="eyebrow">LIVE WEATHER</p>
+        <h1>SkyCast</h1>
+        <p class="subtitle">Current conditions and a 7-day forecast for anywhere in the world.</p>
+      </div>
+
+      <form id="search-form" class="search-bar" role="search">
+        <label class="sr-only" for="city-input">Search city</label>
+        <input id="city-input" type="search" placeholder="Search a city…" autocomplete="off" required />
+        <button type="submit">Search</button>
+        <button id="location-btn" class="secondary-btn" type="button" aria-label="Use my location">Use my location</button>
+      </form>
+    </section>
+
+    <section id="status" class="status" aria-live="polite"></section>
+
+    <section id="weather-content" class="weather-content hidden">
+      <article class="current-card glass">
+        <div class="current-heading">
+          <div>
+            <p id="location-name" class="location-name"></p>
+            <p id="local-time" class="muted"></p>
+          </div>
+          <span id="weather-icon" class="weather-icon" aria-hidden="true">☀️</span>
+        </div>
+
+        <div class="temperature-row">
+          <p id="temperature" class="temperature"></p>
+          <div>
+            <p id="condition" class="condition"></p>
+            <p id="feels-like" class="muted"></p>
+          </div>
+        </div>
+
+        <div class="metrics-grid">
+          <div class="metric">
+            <span>Humidity</span>
+            <strong id="humidity"></strong>
+          </div>
+          <div class="metric">
+            <span>Wind</span>
+            <strong id="wind"></strong>
+          </div>
+          <div class="metric">
+            <span>Precipitation</span>
+            <strong id="precipitation"></strong>
+          </div>
+          <div class="metric">
+            <span>UV index</span>
+            <strong id="uv-index"></strong>
+          </div>
+        </div>
+      </article>
+
+      <section class="forecast-section">
+        <div class="section-heading">
+          <h2>7-day forecast</h2>
+          <p class="muted">Daily outlook</p>
+        </div>
+        <div id="forecast-grid" class="forecast-grid"></div>
+      </section>
+    </section>
+
+    <footer>
+      <p>Weather data by <a href="https://open-meteo.com/" target="_blank" rel="noreferrer">Open-Meteo</a>.</p>
+    </footer>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>
